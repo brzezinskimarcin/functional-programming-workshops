@@ -1,3 +1,10 @@
+// #region Example 0 - (if we have time) Maybe without a Functor
+
+// #endregion
+
+
+
+
 // #region Example 1 - Maybe Functor (also called Optional) --- Maybe.Just, Maybe.Nothing, map
 
 // #endregion
