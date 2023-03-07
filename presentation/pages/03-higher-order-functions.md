@@ -35,11 +35,7 @@ layout: section
 <v-clicks>
 <div>
 Reduce function:
-<div class="grid gap-4 grid-cols-2">
-
-```js
-[3, 7, 31, 127].reduce((acc, item) => acc + item, 0);
-```
+<div class="grid gap-4 grid-cols-1">
 
 ```python
 reduce(lambda acc, item: acc + item, [3, 7, 31, 127], 0)
@@ -68,29 +64,7 @@ coding style, where caller does not pass arguments explicitly to a function
 
 </v-click>
 <v-click>
-<div class="grid gap-4 grid-cols-2">
-
-```javascript
-function isReleasedIn90s(song) {
-  return 1990 <= song.released && song.released <= 1999;
-}
-
-const songs = [
-  { name: 'Space Oddity', released: 1972 },
-  { name: 'Karma Police', released: 1997 },
-  { name: 'Pictures Of You', released: 1993 },
-  { name: 'Wonderwall', released: 1995 },
-  { name: 'Let It Happen', released: 2015 },
-  { name: 'Where Is My Mind', released: 1988 },
-];
-
-// Normal
-filter((song) => isReleasedIn90s(song), songs);
-
-// Point free style
-filter(isReleasedIn90s, songs);
-
-```
+<div class="grid gap-4 grid-cols-1">
 
 ```python
 def isReleasedIn90s(song):

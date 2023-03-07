@@ -16,15 +16,7 @@ A function that will return a new function until it receives all it's arguments.
 
 </v-click>
 <v-click>
-<div class="grid gap-4 grid-cols-2">
-
-```javascript
-function add(x, y) {
-  return x + y;
-}
-
-const a = add(1, 2); // 3
-```
+<div class="grid gap-4 grid-cols-1">
 
 ```python
 def add(x, y):
@@ -32,17 +24,6 @@ def add(x, y):
 
 
 a = add(1, 2) # 3
-```
-
-```javascript
-function addCurried(x) {
-  return function(y) {
-    return x + y;
-  }
-}
-
-const b = addCurried(1)(2); // 3
-
 ```
 
 ```python
@@ -80,49 +61,19 @@ Giving a function fewer arguments than it expects.
 
 </v-click>
 <v-click>
-<div class="grid gap-4 grid-cols-2">
-
-```javascript
-function add(x, y) {
-  return x + y;
-}
-
-function increment(x) {
-  return add(1, x);
-}
-
-function decrement(x) {
-  return add(-1, x);
-} // we need to redeclare functions...
-```
+<div class="grid gap-4 grid-cols-1">
 
 ```python
 def add(x, y):
   return x + y
 
-
 def increment(x):
   return add(1, x)
-
 
 def decrement(x):
   return add(-1, x)
 # we need to redeclare functions...
 ```
-
-
-```javascript
-function addCurried(x) {
-  return function(y) {
-    return x + y;
-  }
-}
-const incrementCurried = addCurried(1); // one-liner!
-const decrementCurried = addCurried(-1);
-
-```
-
-
 
 ```python
 def addCurried(x):
@@ -148,17 +99,7 @@ a higher-order function, that transforms normal function to a curried function
 
 </v-click>
 <v-click>
-<div class="grid gap-4 grid-cols-2">
-
-```javascript
-const curriedAdd = curry((x, y, z) => x + y + z);
-
-curriedAdd(1, 2, 3); // 6
-curriedAdd(1, 2)(3); // 6
-curriedAdd(1)(2, 3); // 6
-curriedAdd(1)(2)(3); // 6
-
-```
+<div class="grid gap-4 grid-cols-1">
 
 ```python
 curriedAdd = curry(lambda x, y, z: x + y + z)
@@ -184,29 +125,7 @@ First provide these, that might be worth saving for later use.
 
 </v-click>
 <v-click>
-<div class="grid gap-4 grid-cols-2">
-
-```javascript
-// (probably) wrong
-function filter(arr, predicate) { /* ... */ }
-
-function inRange(val, minimum, maximum) { /* ... */ }
-
-
-// (probably) better
-function filter(predicate, arr) { /* ... */ }
-
-const _filter = curry(filter);
-
-function inRange(min, max, val) { /* ... */ }
-
-const _inRange = curry(inRange);
-
-const betweenZeroAndHundred = _filter(_inRange(0, 100));
-betweenZeroAndHundred([1, 200, 3, -5, 40]); // -> [1, 3, 40]
-betweenZeroAndHundred([100, 200, 300]); // -> []
-
-```
+<div class="grid gap-4 grid-cols-1">
 
 ```python
 # (probably) wrong
@@ -216,13 +135,13 @@ def inRange(val, minimum, maximum):
   pass
 
 # (probably) better
+@curry
 def filter(predicate, arr):
   pass
-_filter = curry(filter)
 
+@curry
 def inRange(min, max, val):
   pass
-_inRange = curry(inRange)
 
 betweenZeroAndHundred = _filter(_inRange(0, 100))
 betweenZeroAndHundred([1, 200, 3, , -5, 40]) # -> [1, 3, 40]

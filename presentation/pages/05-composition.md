@@ -17,16 +17,7 @@ operation, that takes two functions: `f` and `g`, and produces a function, that 
 </v-click>
 
 <v-click>
-<div class="grid gap-4 grid-cols-2">
-
-```javascript
-const toUpperCase = x => x.toUpperCase();
-const exclaim = x => `${x}!`;
-const shout = compose(exclaim, toUpperCase);
-
-shout('send in the clowns'); // -> "SEND IN THE CLOWNS!"
-
-```
+<div class="grid gap-4 grid-cols-1">
 
 ```python
 toUpperCase = lambda x: x.upper()

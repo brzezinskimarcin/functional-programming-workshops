@@ -86,21 +86,7 @@ layout: section
 ---
 
 <div class="grid gap-4 grid-cols-2">
-<div>
-JavaScript
-</div>
-<div>
-Python
-</div>
 <v-click>
-<div>
-
-```javascript
-function increment(a) {
-  return a + 1;
-}
-```
-</div>
 <div>
 
 ```python
@@ -111,15 +97,6 @@ def increment(a):
 </v-click>
 
 <v-click>
-<div>
-
-```javascript
-function birthday(user) {
-  user.age += 1
-  return user;
-}
-```
-</div>
 <div>
 
 ```python
@@ -133,14 +110,6 @@ def birthday(user):
 <v-click>
 <div>
 
-```javascript
-function shout(sentence) {
-  return sentence.toUpperCase() + '!';
-}
-```
-</div>
-<div>
-
 ```python
 def shout(sentence):
   return sentence.upper() + '!'
@@ -151,17 +120,6 @@ def shout(sentence):
 <v-click>
 <div>
 
-```javascript
-function parseQueryString(query) {
-    return query
-      .substring(1)
-      .split('&')
-      .map(x => x.split('='))
-}
-```
-</div>
-<div>
-
 ```python
 def parseQueryString(query):
   return [x.split('=') for x in query[1:].split('&')]
@@ -169,27 +127,7 @@ def parseQueryString(query):
 </div>
 </v-click>
 
-</div>
-
----
-
-<div class="grid gap-4 grid-cols-2">
-<div>
-JavaScript
-</div>
-<div>
-Python
-</div>
 <v-click>
-<div>
-
-```javascript
-function signUp(input) {
-  const user = dbProvider.save(input);
-  emailProvider.sendWelcomeEmail(user);
-}
-```
-</div>
 <div>
 
 ```python
@@ -203,14 +141,6 @@ def signUp(input):
 <v-click>
 <div>
 
-```javascript
-function getLastElement(arr) {
-  return arr.pop();
-}
-```
-</div>
-<div>
-
 ```python
 def getLastElement(arr):
   return arr.pop()
@@ -219,14 +149,6 @@ def getLastElement(arr):
 </v-click>
 
 <v-click>
-<div>
-
-```javascript
-function getLastElement2(arr) {
-  return arr.at(-1);
-}
-```
-</div>
 <div>
 
 ```python
@@ -239,15 +161,6 @@ def getLastElement2(arr):
 <v-click>
 <div>
 
-```javascript
-function add(a, b) {
-  console.log(`Adding ${a} + ${b}`);
-  return a + b;
-}
-```
-</div>
-<div>
-
 ```python
 def add(a, b):
   print(f'Adding {a} + {b}')
@@ -257,10 +170,4 @@ def add(a, b):
 </v-click>
 
 </div>
-
----
-layout: section
----
-
-## Why do we care so much about purity?
 

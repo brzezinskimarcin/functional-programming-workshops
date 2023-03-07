@@ -37,11 +37,7 @@ But what about control flow, error handling, asynchronous actions, state... Appl
 
 We all know arrays. We can map them:
 
-<div class="grid gap-4 grid-cols-2">
-
-```js
-map((name) => name.length, ['Harry', 'Hermiona', 'Ron']);
-```
+<div class="grid gap-4 grid-cols-1">
 
 ```python
 map((name) => len(name), ['Harry', 'Hermiona', 'Ron'])
@@ -76,15 +72,7 @@ type that implements `map` method (sometimes called `fmap` or `<$>`) and obeys t
 
 1. Mapping with identity function does not modify the value
 
-<div class="grid gap-4 grid-cols-2">
-
-```js
-const identity = (x) => x;
-ArrayF.of(1, 2, 3).map(identity);
-// should contain the same value as:
-ArrayF.of(1, 2, 3);
-// -> [1, 2, 3]
-```
+<div class="grid gap-4 grid-cols-1">
 
 ```python
 identity = lambda x: x
@@ -100,17 +88,7 @@ ArrayF.of(1, 2, 3)
 
 2. Mapping with `f` and then `g` is the same as mapping with composition `compose(f, g)`
 
-<div class="grid gap-4 grid-cols-2">
-
-```js
-const double = (x) => x * 2;
-const inc = (x) => x + 1;
-const double_and_inc = compose(inc, double);
-ArrayF.of(1, 2, 3).map(double).map(inc);
-// should contain the same value as:
-ArrayF.of(1, 2, 3).map(double_and_inc);
-// -> [3, 5, 7]
-```
+<div class="grid gap-4 grid-cols-1">
 
 ```python
 double = lambda x: x * 2
@@ -137,14 +115,7 @@ it is a functor that also implements `chain` method (sometimes called `flatMap` 
 
 - we use `map`, when we want to apply a function, which does not use the fact, that we are working with monad and returns unwrapped value: `(a -> b)`
 
-<div class="grid gap-4 grid-cols-2">
-
-```javascript
-const safeHead = (x) => Maybe.of(x[0]);
-const increment = (x) => x + 1;
-safeHead([1, 2, 3]).map(increment) // -> Just(2)
-safeHead([]).map(increment) // -> Nothing
-```
+<div class="grid gap-4 grid-cols-1">
 
 ```python
 safeHead = lambda x: Maybe.of(x[0])
@@ -159,17 +130,7 @@ safeHead([]).map(increment) # -> Nothing
 
 - we use `chain`, when we want to apply a function, which uses the fact, that we are working with monad and returns already wrapped value: `(a -> Monad b)`
 
-<div class="grid gap-4 grid-cols-2">
-
-```javascript
-const safeHead = (x) => Maybe.of(x[0]);
-const safeDivide = (x) =>
-  x === 0
-  ? Maybe.Nothing()
-  : Maybe.Just(10 / x);
-safeHead([1, 2, 3]).map(safeDivide) // -> Just(Just(1))
-safeHead([1, 2, 3]).chain(safeDivide) // -> Just(1)
-```
+<div class="grid gap-4 grid-cols-1">
 
 ```python
 safeHead = lambda x: Maybe.of(x[0])
