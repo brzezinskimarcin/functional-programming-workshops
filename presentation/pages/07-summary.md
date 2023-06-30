@@ -22,6 +22,5 @@ Applicative functors, Comonads, Transformations, Semigroups, Monoids...  most of
 
 ### Libraries:
 
-- JavaScript and TypeScript: [ramda.js](https://ramdajs.com/), [fp-ts](https://github.com/gcanti/fp-ts)
 - Python: [toolz](https://github.com/pytoolz/toolz), [pymonad](https://github.com/jasondelaat/pymonad)
 </v-click>

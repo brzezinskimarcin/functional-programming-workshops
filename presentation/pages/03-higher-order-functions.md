@@ -38,7 +38,7 @@ Reduce function:
 <div class="grid gap-4 grid-cols-1">
 
 ```python
-reduce(lambda acc, item: acc + item, [3, 7, 31, 127], 0)
+reduce(lambda acc, item: acc + item, 0, [3, 7, 31, 127])
 ```
 
 </div>

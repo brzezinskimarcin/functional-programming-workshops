@@ -41,66 +41,64 @@ Alan Perlis
 <v-clicks>
 
 1. completely different way of thinking about problems
-2. very generic and portable (you don't need to understand language specifics, like `this`, `self` keywords, prototypal inheritance, etc.)
+2. very generic and portable (you don't need to understand language specifics, like `self` keyword, inheritance, etc.)
 3. easier to parallelize, test and verify
-4. it's becoming more mainstream (i.e. pattern matching in Python 3.10, promises in ES6)
+4. it's becoming more mainstream (i.e. pattern matching in Python 3.10)
 5. expressive, declarative (and hence more readable)
 
 </v-clicks>
 
 ---
 
-## Quick Sort Example - Imperative (JavaScript)
+## Quick Sort Example - Imperative
 
 <v-clicks>
 
-```javascript
-function partition(items, left, right) {
-    let p = items[0];
-    let i = left
-    let j = right;
-    while (i <= j) {
-        while (items[i] < pivot) { i++; }
-        while (items[j] > pivot) { j--; }
-        if (i <= j) {
-            [ items[i], items[j] ] = [ items[j], items[i] ];
-            i++;
-            j--;
-        }
-    }
-    return i;
-}
-function quicksort(items, left, right) {
-    let index;
-    if (items.length > 1) {
-        index = partition(items, left, right);
-        if (left < index - 1) { quicksort(items, left, index - 1); }
-        if (index < right) { quicksort(items, index, right); }
-    }
-    return items;
-}
+```python
+def partition(items, left, right):
+    pivot = items[0]
+    i = left
+    j = right
+    while i <= j:
+        while items[i] < pivot:
+            i += 1
+        while items[j] > pivot:
+            j -= 1
+        if i <= j:
+            items[i], items[j] = items[j], items[i]
+            i += 1
+            j -= 1
+    return i
+
+def quicksort(items, left, right):
+    index = None
+    if len(items) > 1:
+        index = partition(items, left, right)
+        if left < index - 1:
+            quicksort(items, left, index - 1)
+        if index < right:
+            quicksort(items, index, right)
+    return items
 ```
 
 </v-clicks>
 
 ---
 
-## Quick Sort Example - Functional (JavaScript & Haskell)
+## Quick Sort Example - Functional
 
 <v-clicks>
 
-JavaScript:
+Python:
 
-```javascript
-function quicksort(array) {
-  if (!array.length) {
-    return [];
-  };
-  const [pivot, ...rest] = array;
-  const lesser = rest.filter(i => i < pivot);
-  const greater = rest.filter(i => i >= pivot);
-  return [...quicksort(lesser), pivot, ...quicksort(greater)];
-}
+```python
+def quicksort(items):
+    if len(items) <= 1:
+        return items
+    pivot, rest = items[0], items[1:]
+    lesser = [i for i in rest if i < pivot]
+    greater = [i for i in rest if i >= pivot]
+    return quicksort(lesser) + [pivot] + quicksort(greater)
 ```
 
 Haskell:
